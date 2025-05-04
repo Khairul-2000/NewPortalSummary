@@ -88,7 +88,14 @@ async def main(your_url: str):
 
 
 
-@app.post("/")
+@app.get("/")
+def read_root():
+    return {"Hello": "World"}
+
+
+
+
+@app.post("/scraping")
 async def APIHandle(body: UrlRequest):
    
     try:
