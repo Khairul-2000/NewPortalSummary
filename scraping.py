@@ -2,21 +2,22 @@ import asyncio
 from crawl4ai import *
 from openai import AsyncOpenAI
 import os
-from fastapi import FastAPI, Request
+from fastapi import FastAPI, Request, HTTPException 
 from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
 
 
-
+ALLOWED_ORIGINS = [
+    "http://10.0.70.225:3000",  # For local development
+    "https://news-portal-client-gamma.vercel.app",
+     "http://localhost:3000",
+]
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[
-       "http://10.0.70.225:3000",
-        "http://localhost:3000", 
-    ],
+    allow_origins= ALLOWED_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
