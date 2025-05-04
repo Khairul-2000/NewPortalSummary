@@ -1,5 +1,5 @@
 {
     "scripts": {
-      "postinstall": "playwright install --with-deps chromium"
+      "postinstall": "python -m playwright install --with-deps chromium"
     }
   }
