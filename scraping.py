@@ -13,12 +13,16 @@ app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://10.0.70.225:3000", "http://localhost:3000"],  # ✅ Set allowed origin(s)
+    allow_origins=[
+        "http://10.0.70.225:3000",  
+        "http://localhost:3000",
+        "https://news-portal-client-gamma.vercel.app/"
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
+    
 )
-
 
 
 client = AsyncOpenAI(
